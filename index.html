@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Matcher</title>
+    <style>
+      /* styles.css */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+      }
+
+      #container {
+        background: #ffffff;
+        padding: 20px 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 300px;
+      }
+
+      #container input {
+        width: 90%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      #container input:focus {
+        border-color: #0078d7;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+      }
+
+      #btn {
+        background-color: #0078d7;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #btn:hover {
+        background-color: #005bb5;
+      }
+
+      #btn:active {
+        background-color: #004a91;
+      }
+
+      #para {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    <h1 style="size: 10px; color: green;">Password Matcher</h1>
+
+
+      PASSWORD - 1 :
+      <input type="password" id="pass1" placeholder="password - 1" /><br />
+      PASSWORD - 2 :
+      <input type="password" id="pass2" placeholder="password - 2" /><br />
+
+      <p id="para"></p>
+
+      <button id="btn">Check</button>
+    </div>
+    <script>
+      let pass1 = document.getElementById("pass1");
+      let pass2 = document.getElementById("pass2");
+      let para = document.getElementById("para");
+      let btn = document.getElementById("btn");
+
+      btn.addEventListener("click", check);
+      function check() {
+        if (pass1.value === "" || pass2.value === "") {
+          para.textContent = "Enter Passwords First";
+          return;
+        }
+        if (pass1.value == pass2.value) {
+          para.textContent = "Password Matched";
+        } else {
+          para.textContent = "Password Not Matched";
+        }
+      }
+    </script>
+  </body>
+</html>
